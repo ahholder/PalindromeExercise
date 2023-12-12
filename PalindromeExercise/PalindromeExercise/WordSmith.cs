@@ -8,7 +8,17 @@ namespace PalindromeExercise
 {
     public class WordSmith
     {
+
+        //This Method Reflects a Simpler Solution More In-Line with Best Practice
         public bool IsAPalindrome(string word)
+        {
+            string opposite = new string(word.Reverse().ToArray());
+            return opposite.Equals(word);
+        }
+
+        //This Function was My Original Solution and Does Not Reflect Best Practice
+
+        public bool WasAPalindrome(string word)
         {
             //Establish baseline
             int size = word.Length;
@@ -22,13 +32,16 @@ namespace PalindromeExercise
             if (size <= 0)
             {
                 return false;
-            } else if (size == 1)
+            }
+            else if (size == 1)
             {
                 return true;
-            } else if (even == true)
+            }
+            else if (even == true)
             {
                 checks = size / 2;
-            } else
+            }
+            else
             {
                 checks = (size - 1) / 2;
             }
